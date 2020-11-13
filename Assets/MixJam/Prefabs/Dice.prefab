@@ -107,6 +107,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabbable: 1
   attachedInteractor: {fileID: 0}
+  audioGrab: {fileID: 11400000, guid: 303682fa9146b3b46b02fa3bdec70ce3, type: 2}
+  audioLaunch: {fileID: 11400000, guid: 41fd617b3a8125041a42b28933cc024f, type: 2}
+  id: 
+  color: {r: 1, g: 1, b: 1, a: 1}
   number: 0
 --- !u!54 &365706161
 Rigidbody:

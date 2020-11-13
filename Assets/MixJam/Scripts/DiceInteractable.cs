@@ -5,6 +5,7 @@ namespace MG
 {
     public class DiceInteractable : Interactable
     {
+        [Header("Dice")]
         public string id;
         public Color color = Color.white;
         public int number = 0;

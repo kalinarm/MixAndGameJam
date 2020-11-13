@@ -9,6 +9,10 @@ namespace MG
         protected Rigidbody rigid;
         public Interactor attachedInteractor;
 
+        [Header("Fx")]
+        public AudioTrigger audioGrab;
+        public AudioTrigger audioLaunch;
+
         public virtual void Start()
         {
             rigid = GetComponent<Rigidbody>();
@@ -22,13 +26,18 @@ namespace MG
         {
             grabbable = active;
         }
-
+        public void grab()
+        {
+            setGrabbable(false);
+            audioGrab.trigger(gameObject);
+        }
         public void launch(Vector3 velocity, float angularVel = 0f)
         {
             detach();
             rigid.velocity = velocity;
             rigid.angularVelocity = new Vector3(Random.Range(-angularVel, angularVel), Random.Range(-angularVel, angularVel), Random.Range(-angularVel, angularVel));
             OnLaunched();
+            audioLaunch.trigger(gameObject);
         }
         
         public virtual void attach(Interactor interactor)

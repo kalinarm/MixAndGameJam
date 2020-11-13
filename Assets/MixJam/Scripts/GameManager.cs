@@ -62,7 +62,7 @@ namespace MG
             evtMgr.doStep(Time.deltaTime);
         }
 
-        void triggerFx(GameObject prefab, Vector3 pos, Fx.FxParams parameters = null)
+        public static void triggerFx(GameObject prefab, Vector3 pos, Fx.FxParams parameters = null)
         {
             if (prefab == null) return;
             GameObject obj = GameObject.Instantiate(prefab);

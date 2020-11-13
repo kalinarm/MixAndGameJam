@@ -24,9 +24,8 @@ namespace MG
 
         public void addGrabbedObject(Interactable obj)
         {
-            obj.setGrabbable(false);
+            obj.grab();
             grabbed.Add(obj);
-
             obj.attach(this);
         }
 

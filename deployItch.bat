@@ -1,11 +1,11 @@
 @echo off
 set PROJECT_PATH=%CD%
-set BUILD_PATH=%PROJECT_PATH%\Build\
+set BUILD_PATH=%PROJECT_PATH%\Build\SpeedDicing
 set LOG_PATH=%CD%\deployItch.log
 
 set ITCH_KEY=%APPDATA%/itch/butler_creds
 set USER=kalinka
-set GAME=mixjam
+set GAME=speeddicing
 set CHANNEL=Web
 
 echo ---------------------------------------------------------------

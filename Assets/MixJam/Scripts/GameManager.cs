@@ -43,6 +43,8 @@ namespace MG
 
         EventManager evtMgr = new EventManager();
 
+        public List<Orderable> controlled = new List<Orderable>();
+
         public static EventManager Events
         {
             get
@@ -80,6 +82,12 @@ namespace MG
         {
             Debug.Log("GAME : dice pick number " + evt.number);
             triggerFx(data.fxDicePickNumber, evt.dice.transform.position, new Fx.FxParams(evt.number.ToString(), evt.dice.color));
+
+            foreach (var item in controlled)
+            {
+                if (item == null) continue;
+                item.onDiceLaunched(evt.dice, evt.number);
+            }
         }
         #endregion
     }

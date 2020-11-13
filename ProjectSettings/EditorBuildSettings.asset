@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/MixJam/Scene/TestScene.unity
+    guid: c35f3eabb4dd54d4d806b7dda932e454
   m_configObjects: {}

@@ -97,6 +97,13 @@ namespace MG
                 return;
             }
 
+            Obstacle obstacle = col.gameObject.GetComponent<Obstacle>();
+            if (obstacle != null)
+            {
+                
+                return;
+            }
+
             audioCollideWall.trigger(gameObject, volumeScale);
         }
 

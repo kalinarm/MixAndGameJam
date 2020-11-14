@@ -17,6 +17,10 @@ MonoBehaviour:
   channel: {fileID: 0}
   volume: 0.9
   pitch: 0.6
+  useRandomPitch: 0
+  randomPitch: {x: 0.9, y: 1.1}
   soundType: 1
   minDistance: 10
   maxDistance: 100
+  vfx: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
+  vfxPosOffset: {x: 0, y: 0, z: 0}

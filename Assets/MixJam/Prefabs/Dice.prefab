@@ -112,6 +112,9 @@ MonoBehaviour:
   audioLaunch: {fileID: 11400000, guid: 41fd617b3a8125041a42b28933cc024f, type: 2}
   audioCollideSelf: {fileID: 11400000, guid: 2bc7186c4dd82db428069f7e9e8918f4, type: 2}
   audioCollideWall: {fileID: 11400000, guid: 9368bddb9cadc2c46ba1f7e831c640a8, type: 2}
+  audioZoneEnter: {fileID: 11400000, guid: a90e40414964672479b036de40dd5bff, type: 2}
+  audioZoneExit: {fileID: 11400000, guid: a646fcfb16543fc46afe537151d5c11a, type: 2}
+  audioGrounded: {fileID: 11400000, guid: bafab669ca0deb24cb761d3058736839, type: 2}
   id: 
   diceType: 0
   color: {r: 0.07450981, g: 0.27450982, b: 0.61960787, a: 1}

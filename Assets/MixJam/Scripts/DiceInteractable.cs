@@ -83,6 +83,7 @@ namespace MG
             number = pickNumber();
             Debug.Log("dice stopped : picking a number : " + number);
             GameManager.Events.Trigger(new Evt.DicePickNumber(this, number, getZone()));
+            audioGrounded.trigger(gameObject);
         }
 
         #region collision
@@ -109,6 +110,7 @@ namespace MG
                     currentZones.Add(zone);
                 }
             }
+            audioZoneEnter.trigger(gameObject);
         }
 
         void OnTriggerExit(Collider other)
@@ -121,6 +123,7 @@ namespace MG
                     currentZones.Remove(zone);
                 }
             }
+            audioZoneExit.trigger(gameObject);
         }
         #endregion
     }

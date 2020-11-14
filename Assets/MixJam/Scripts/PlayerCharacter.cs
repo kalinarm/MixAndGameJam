@@ -12,6 +12,7 @@ namespace MG
             GoalDestination goal = other.GetComponent<GoalDestination>();
             if (goal != null)
             {
+                goal.triggerFx();
                 GameManager.Events.Trigger(new Evt.PlayerAtGoal(this, goal));
             }
         }

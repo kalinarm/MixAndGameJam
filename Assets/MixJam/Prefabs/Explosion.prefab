@@ -110,6 +110,7 @@ MonoBehaviour:
   range: 2
   duration: 0.4
   durationBig: 0.3
+  forceApplied: 50
   effectiveRange: 0
 --- !u!54 &54238514524893538
 Rigidbody:

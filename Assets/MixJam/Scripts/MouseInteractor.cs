@@ -14,6 +14,8 @@ namespace MG
         public float launchMultiplicator = 5f;
         public float launchUpMultiplicator = 5f;
         public float launchAngularVelocity = 1f;
+        public float postLaunchFactorControl = 1f;
+        public float postLaunchTimeInfluence = 4f;
 
         Vector3 currentVelocity;
 
@@ -32,8 +34,17 @@ namespace MG
                 if (obj != null)
                 {
                     interactor.addGrabbedObject(obj);
+                }else
+                {
+                    StartZone diceZone = returnPointedZone();
+                    if (diceZone != null && diceZone.dice != null && diceZone.dice.isGrabbable())
+                    {
+                        interactor.addGrabbedObject(diceZone.dice);
+                    }
                 }
+                return;
             }
+            interactor.influenceLastLaunchedObject(Vector3.Scale(new Vector3(1f,0f,1f),currentVelocity) * postLaunchFactorControl, postLaunchTimeInfluence);
         }
 
         bool isActionGrab()
@@ -55,6 +66,19 @@ namespace MG
             {
                 r = item.collider.gameObject.GetComponent<Interactable>();
                 if (r != null && r.isGrabbable()) return r;
+            }
+            return null;
+        }
+
+        StartZone returnPointedZone()
+        {
+            StartZone r = null;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit[] hits = Physics.RaycastAll(ray, 100, layerInteractable, QueryTriggerInteraction.Collide);
+            foreach (var item in hits)
+            {
+                r = item.collider.gameObject.GetComponent<StartZone>();
+                if (r != null) return r;
             }
             return null;
         }

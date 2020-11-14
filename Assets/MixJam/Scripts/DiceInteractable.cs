@@ -23,7 +23,6 @@ namespace MG
         public int number = 0;
 
         [SerializeField] List<DiceZone> currentZones = new List<DiceZone>();
-        bool isInLaunch = false;
 
         public override void Start()
         {
@@ -40,6 +39,14 @@ namespace MG
         {
             stopLaunch();
             base.attach(interactor);
+        }
+
+        public override void influenceVelocity(Vector3 velocity, float timeLaunch, float timeInfluence)
+        {
+            float n = 1f - Mathf.Clamp01(timeLaunch / timeInfluence);
+            Debug.Log("influence " + n);
+            rigid.AddForce(velocity * n * Time.deltaTime);
+            
         }
 
         DiceZone getZone()
@@ -85,6 +92,7 @@ namespace MG
             Debug.Log("dice stopped : picking a number : " + number);
             GameManager.Events.Trigger(new Evt.DicePickNumber(this, number, getZone()));
             audioGrounded.trigger(gameObject);
+            stopLaunch();
         }
 
         #region collision

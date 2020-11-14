@@ -115,8 +115,8 @@ MonoBehaviour:
   audioZoneEnter: {fileID: 11400000, guid: a90e40414964672479b036de40dd5bff, type: 2}
   audioZoneExit: {fileID: 11400000, guid: a646fcfb16543fc46afe537151d5c11a, type: 2}
   audioGrounded: {fileID: 11400000, guid: bafab669ca0deb24cb761d3058736839, type: 2}
-  id: 
-  diceType: 0
+  id: Forward
+  diceType: 1
   color: {r: 0.07450981, g: 0.27450982, b: 0.61960787, a: 1}
   number: 0
   currentZones: []
@@ -223,6 +223,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 7d104b823c675da4cb4307020d011c93, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3bb6c5c8dd456d9479b518cc18418004, type: 2}
+    - target: {fileID: 2300000, guid: 7d104b823c675da4cb4307020d011c93, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6bf17a02d9a128e448ff27189ac6e170, type: 2}
+    - target: {fileID: 2300002, guid: 7d104b823c675da4cb4307020d011c93, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3bb6c5c8dd456d9479b518cc18418004, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d104b823c675da4cb4307020d011c93, type: 3}
 --- !u!4 &4460847489752631899 stripped

@@ -14,6 +14,9 @@ namespace MG
         public AudioTrigger audioLaunch;
         public AudioTrigger audioCollideSelf;
         public AudioTrigger audioCollideWall;
+        public AudioTrigger audioZoneEnter;
+        public AudioTrigger audioZoneExit;
+        public AudioTrigger audioGrounded;
 
         public virtual void Start()
         {

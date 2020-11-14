@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca85e7e1e482cca45857a6da07d70d29, type: 3}
   m_Name: DiceGrounded
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 4f480db9ac42cf24eba02338a5b85fb0, type: 3}
   clipsRandom: []
   channel: {fileID: 0}
-  volume: 1
+  volume: 0.4
   pitch: 1
   useRandomPitch: 0
   randomPitch: {x: 0.9, y: 1.1}

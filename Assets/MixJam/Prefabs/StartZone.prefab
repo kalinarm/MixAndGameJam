@@ -258,6 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8293665037580840601}
+  - component: {fileID: 2812816851867561558}
   m_Layer: 0
   m_Name: StartZone
   m_TagString: Untagged
@@ -280,3 +281,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2812816851867561558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8818087370117437436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf53b530c2b2ca14a88a3f5c98f7b47a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dice: {fileID: 0}
+  colorFull:
+    entries: []
+    uiColorized: []
+    uiTexts:
+    - {fileID: 3359679129428375528}
+    lights: []
+  alpha: 0.4
+  colorWithAlpha:
+    entries: []
+    uiColorized:
+    - {fileID: 9211112254933512881}
+    uiTexts: []
+    lights: []
+  text: {fileID: 3359679129428375528}

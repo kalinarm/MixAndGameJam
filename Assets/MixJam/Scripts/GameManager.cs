@@ -140,6 +140,13 @@ namespace MG
             }
             triggerFx(data.fxDicePickNumber, evt.dice.transform.position, new Fx.FxParams(str, evt.dice.color));
 
+            if (evt.dice.diceType == DiceInteractable.DICE_TYPE.BOOM)
+            {
+                Explosion expl = GameObject.Instantiate(data.diceExplosion);
+                expl.transform.position = evt.dice.transform.position;
+                expl.setRange(finalNumber);
+            }
+
             foreach (var item in controlled)
             {
                 if (item == null) continue;

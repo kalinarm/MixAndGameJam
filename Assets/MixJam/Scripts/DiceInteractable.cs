@@ -13,7 +13,8 @@ namespace MG
             TURN_RIGHT,
             BRAKE,
             JUMP,
-            SHOOT
+            SHOOT,
+            BOOM
         }
         [Header("Dice")]
         public string id;

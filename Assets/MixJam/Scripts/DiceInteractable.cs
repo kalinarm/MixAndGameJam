@@ -22,6 +22,7 @@ namespace MG
         public int number = 0;
 
         [SerializeField] List<DiceZone> currentZones = new List<DiceZone>();
+        bool isInLaunch = false;
 
         public override void Start()
         {
@@ -30,15 +31,16 @@ namespace MG
 
         public override void OnLaunched()
         {
-            StopAllCoroutines();
+            stopLaunch();
             StartCoroutine(getNumberRoutine());
         }
 
         public override void attach(Interactor interactor)
         {
+            stopLaunch();
             base.attach(interactor);
-            StopAllCoroutines();
         }
+
         DiceZone getZone()
         {
             if (currentZones.Count == 0) return null;
@@ -62,8 +64,15 @@ namespace MG
             return 0;
         }
 
+        void stopLaunch()
+        {
+            StopAllCoroutines();
+            isInLaunch = false;
+        }
+
         IEnumerator getNumberRoutine()
         {
+            isInLaunch = true;
             WaitForEndOfFrame wait = new WaitForEndOfFrame();
             float angularVel = 1f;
             do
@@ -76,11 +85,10 @@ namespace MG
             GameManager.Events.Trigger(new Evt.DicePickNumber(this, number, getZone()));
         }
 
-
         #region collision
         void OnCollisionEnter(Collision col)
         {
-            float volumeScale = Mathf.InverseLerp(0f, 50f, col.relativeVelocity.magnitude);
+            float volumeScale = Mathf.InverseLerp(0f, 25f, col.relativeVelocity.magnitude);
             DiceInteractable dice = col.gameObject.GetComponent<DiceInteractable>();
             if (dice != null)
             {

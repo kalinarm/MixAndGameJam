@@ -7,5 +7,8 @@ namespace MG
     public class GameManagerData : ScriptableObject
     {
         public GameObject fxDicePickNumber;
+
+        public AudioTrigger audioWin;
+        public AudioTrigger audioLoose;
     }
 }

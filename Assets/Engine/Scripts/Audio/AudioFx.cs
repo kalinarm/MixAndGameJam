@@ -9,7 +9,7 @@ namespace MG
     {
         public AudioTrigger sound;
 
-        public bool emitOnEnable;
+        public bool emitOnEnable = true;
 
         void OnEnable()
         {

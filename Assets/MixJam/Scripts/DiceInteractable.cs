@@ -5,8 +5,19 @@ namespace MG
 {
     public class DiceInteractable : Interactable
     {
+        public enum DICE_TYPE
+        {
+            NONE,
+            MOVE_FORWARD,
+            TURN_LEFT,
+            TURN_RIGHT,
+            BRAKE,
+            JUMP,
+            SHOOT
+        }
         [Header("Dice")]
         public string id;
+        public DICE_TYPE diceType = DICE_TYPE.NONE;
         public Color color = Color.white;
         public int number = 0;
 
@@ -21,6 +32,17 @@ namespace MG
         {
             StopAllCoroutines();
             StartCoroutine(getNumberRoutine());
+        }
+
+        public override void attach(Interactor interactor)
+        {
+            base.attach(interactor);
+            StopAllCoroutines();
+        }
+        DiceZone getZone()
+        {
+            if (currentZones.Count == 0) return null;
+            return currentZones[currentZones.Count - 1];
         }
 
         int pickNumber()
@@ -51,9 +73,11 @@ namespace MG
             } while (angularVel > 0.01f);
             number = pickNumber();
             Debug.Log("dice stopped : picking a number : " + number);
-            GameManager.Events.Trigger(new Evt.DicePickNumber(this, number));
+            GameManager.Events.Trigger(new Evt.DicePickNumber(this, number, getZone()));
         }
 
+
+        #region collision
         void OnTriggerEnter(Collider other)
         {
             DiceZone zone = other.GetComponent<DiceZone>();
@@ -77,5 +101,6 @@ namespace MG
                 }
             }
         }
+        #endregion
     }
 }

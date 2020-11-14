@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 namespace MG
 {
     namespace Evt
@@ -9,10 +11,22 @@ namespace MG
         {
             public DiceInteractable dice;
             public int number;
-            public DicePickNumber(DiceInteractable dice, int number)
+            public DiceZone zone;
+            public DicePickNumber(DiceInteractable dice, int number, DiceZone zone = null)
             {
                 this.dice = dice;
                 this.number = number;
+                this.zone = zone;
+            }
+        }
+        public class PlayerAtGoal : IEvent
+        {
+            public PlayerCharacter character;
+            public GoalDestination goal;
+            public PlayerAtGoal(PlayerCharacter character, GoalDestination goal)
+            {
+                this.character = character;
+                this.goal = goal;
             }
         }
     }
@@ -45,6 +59,8 @@ namespace MG
 
         public List<Orderable> controlled = new List<Orderable>();
 
+        public List<GameObject> winnObjects = new List<GameObject>();
+
         public static EventManager Events
         {
             get
@@ -55,7 +71,12 @@ namespace MG
 
         void Start()
         {
+            foreach(var item in winnObjects)
+            {
+                item.SetActive(false);
+            }
             evtMgr.AddListener<Evt.DicePickNumber>(onDicePickNumber);
+            evtMgr.AddListener<Evt.PlayerAtGoal>(onPlayerAtGoal);
         }
         void Update()
         {
@@ -77,17 +98,54 @@ namespace MG
             }
         }
 
+        void onWin()
+        {
+            Debug.Log("Game Win");
+            foreach (var item in winnObjects)
+            {
+                item.SetActive(true);
+            }
+        }
+
+        public void restartLevel()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        public void nextLevel()
+        {
+            int index = SceneManager.GetActiveScene().buildIndex + 1;
+            if (index > SceneManager.sceneCountInBuildSettings) return;
+            SceneManager.LoadScene(index);
+        }
+        public void backToMenu()
+        {
+            SceneManager.LoadScene(0);
+        }
+
         #region callback
         public void onDicePickNumber(Evt.DicePickNumber evt)
         {
             Debug.Log("GAME : dice pick number " + evt.number);
-            triggerFx(data.fxDicePickNumber, evt.dice.transform.position, new Fx.FxParams(evt.number.ToString(), evt.dice.color));
+            string str = evt.number.ToString();
+            int finalNumber = evt.number;
+            if (evt.zone != null)
+            {
+                finalNumber = evt.zone.getCorrectNumber(evt.number);
+                str = evt.number + evt.zone.getString() + " = " + finalNumber;
+            }
+            triggerFx(data.fxDicePickNumber, evt.dice.transform.position, new Fx.FxParams(str, evt.dice.color));
 
             foreach (var item in controlled)
             {
                 if (item == null) continue;
-                item.onDiceLaunched(evt.dice, evt.number);
+                item.onDiceLaunched(evt.dice, finalNumber, evt.zone);
             }
+        }
+
+        void onPlayerAtGoal(Evt.PlayerAtGoal evt)
+        {
+            Debug.Log("GAME : player at goal");
+            onWin();
         }
         #endregion
     }

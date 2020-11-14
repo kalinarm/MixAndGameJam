@@ -6,6 +6,8 @@ namespace MG
     [CreateAssetMenu]
     public class GameManagerData : ScriptableObject
     {
+        public Explosion diceExplosion;
+
         public GameObject fxDicePickNumber;
 
         public AudioTrigger audioWin;

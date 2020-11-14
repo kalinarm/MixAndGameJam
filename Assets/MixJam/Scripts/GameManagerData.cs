@@ -6,6 +6,7 @@ namespace MG
     [CreateAssetMenu]
     public class GameManagerData : ScriptableObject
     {
+        public List<LevelData> levels = new List<LevelData>();
         public Explosion diceExplosion;
         public Shield diceShield;
 

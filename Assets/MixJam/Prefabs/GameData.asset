@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ced559c0f3b63242b56c2f44236b959, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
+  levels:
+  - {fileID: 11400000, guid: 433cef4f077658e49949db349510691e, type: 2}
+  - {fileID: 11400000, guid: cab1d82494ca2394dbeedabc4416bbd4, type: 2}
+  - {fileID: 11400000, guid: cb44107905d6f934f821cbca94e9169b, type: 2}
+  - {fileID: 11400000, guid: 8ca65b081def43a41ba29a3c7ff20040, type: 2}
   diceExplosion: {fileID: 4878168040361847942, guid: d626a4f161bae804d84d6d1a289510b2,
     type: 3}
   diceShield: {fileID: 3168110237180595315, guid: e6a2aea7da23b244999ed1ec0ad2d23d,

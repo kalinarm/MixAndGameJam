@@ -124,7 +124,14 @@ namespace MG
         {
             data.audioLoose.trigger(gameObject);
         }
-
+        public void loadLevel(LevelData levelData)
+        {
+            SceneManager.LoadScene(levelData.levelIndex);
+        }
+        public void loadLevel(int i)
+        {
+            loadLevel(data.levels[i]);
+        }
         public void restartLevel()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -156,7 +163,7 @@ namespace MG
         }
         public bool canContinueGame()
         {
-            return PlayerPrefs.HasKey(playerLevelKey);
+            return PlayerPrefs.HasKey(playerLevelKey) && PlayerPrefs.GetInt(playerLevelKey) > 1;
         }
         public void resetGameIndex()
         {
@@ -165,7 +172,13 @@ namespace MG
 
         void setGameIndex(int index)
         {
-            PlayerPrefs.SetInt(playerLevelKey, index);
+            int i = PlayerPrefs.GetInt(playerLevelKey, 1);
+            PlayerPrefs.SetInt(playerLevelKey, Mathf.Max(i, index));
+        }
+        public int getGameIndex()
+        {
+            if (!canContinueGame()) return 1;
+            return PlayerPrefs.GetInt(playerLevelKey);
         }
 
         #region callback

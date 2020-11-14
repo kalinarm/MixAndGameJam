@@ -35,5 +35,17 @@ namespace MG
             yield return new WaitForSeconds(durationBig);
             GameObject.Destroy(gameObject);
         }
+
+        void OnTriggerEnter(Collider other)
+        {
+            Obstacle obstacle = other.GetComponent<Obstacle>();
+            if (obstacle != null)
+            {
+                if (obstacle.isDectructible)
+                {
+                    obstacle.autodestroy();
+                }
+            }
+        }
     }
 }

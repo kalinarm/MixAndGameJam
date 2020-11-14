@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ced559c0f3b63242b56c2f44236b959, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
+  diceExplosion: {fileID: 4878168040361847942, guid: d626a4f161bae804d84d6d1a289510b2,
+    type: 3}
   fxDicePickNumber: {fileID: 7505865680008452916, guid: 0d1ea958a8806824989ee067ae718592,
     type: 3}
   audioWin: {fileID: 11400000, guid: bf431c3ae91efbc47820161fc5686426, type: 2}

@@ -48,6 +48,7 @@ namespace MG
         public virtual void attach(Interactor interactor)
         {
             attachedInteractor = interactor;
+#if CONF_JOINT
             ConfigurableJoint joint = gameObject.AddComponent<ConfigurableJoint>();
             joint.connectedBody = interactor.Rigid;
             //joint.spring = interactor.attachForce;
@@ -64,21 +65,34 @@ namespace MG
             limit.spring = interactor.attachForce;
             limit.damper = interactor.attachViscosity;
             joint.linearLimitSpring = limit;
+#else
+            SpringConnection joint = gameObject.AddComponent<SpringConnection>();
+            joint.connectedBody = interactor.Rigid;
+            joint.force = interactor.attachForce;
+            joint.damping = interactor.attachViscosity;
+#endif
 
         }
         public virtual void detach()
         {
+#if CONF_JOINT
             ConfigurableJoint joint = gameObject.GetComponent<ConfigurableJoint>();
             if (joint == null) return;
             GameObject.Destroy(joint);
+#else
+            SpringConnection joint = gameObject.GetComponent<SpringConnection>();
+            if (joint == null) return;
+            GameObject.Destroy(joint);
+#endif
+
             attachedInteractor = null;
         }
 
-        #region virtual callback
+#region virtual callback
         public virtual void OnLaunched()
         {
 
         }
-        #endregion
+#endregion
     }
 }

@@ -105,6 +105,11 @@ namespace MG
             {
                 item.SetActive(true);
             }
+            data.audioWin.trigger(gameObject);
+        }
+        void onLoose()
+        {
+            data.audioLoose.trigger(gameObject);
         }
 
         public void restartLevel()

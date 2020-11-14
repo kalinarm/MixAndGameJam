@@ -12,6 +12,8 @@ namespace MG
         [Header("Fx")]
         public AudioTrigger audioGrab;
         public AudioTrigger audioLaunch;
+        public AudioTrigger audioCollideSelf;
+        public AudioTrigger audioCollideWall;
 
         public virtual void Start()
         {

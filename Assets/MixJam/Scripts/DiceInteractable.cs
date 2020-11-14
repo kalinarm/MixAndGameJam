@@ -10,6 +10,8 @@ namespace MG
         public Color color = Color.white;
         public int number = 0;
 
+        [SerializeField] List<DiceZone> currentZones = new List<DiceZone>();
+
         public override void Start()
         {
             base.Start();
@@ -28,13 +30,13 @@ namespace MG
             if (Vector3.Dot(-transform.forward, Vector3.up) > 0.6f)
                 return 2;
             if (Vector3.Dot(transform.up, Vector3.up) > 0.6f)
-                return 3;
-            if (Vector3.Dot(-transform.up, Vector3.up) > 0.6f)
-                return 4;
-            if (Vector3.Dot(transform.right, Vector3.up) > 0.6f)
                 return 6;
-            if (Vector3.Dot(-transform.right, Vector3.up) > 0.6f)
+            if (Vector3.Dot(-transform.up, Vector3.up) > 0.6f)
                 return 1;
+            if (Vector3.Dot(transform.right, Vector3.up) > 0.6f)
+                return 4;
+            if (Vector3.Dot(-transform.right, Vector3.up) > 0.6f)
+                return 3;
             return 0;
         }
 
@@ -50,6 +52,30 @@ namespace MG
             number = pickNumber();
             Debug.Log("dice stopped : picking a number : " + number);
             GameManager.Events.Trigger(new Evt.DicePickNumber(this, number));
+        }
+
+        void OnTriggerEnter(Collider other)
+        {
+            DiceZone zone = other.GetComponent<DiceZone>();
+            if (zone != null)
+            {
+                if (!currentZones.Contains(zone))
+                {
+                    currentZones.Add(zone);
+                }
+            }
+        }
+
+        void OnTriggerExit(Collider other)
+        {
+            DiceZone zone = other.GetComponent<DiceZone>();
+            if (zone != null)
+            {
+                if (currentZones.Contains(zone))
+                {
+                    currentZones.Remove(zone);
+                }
+            }
         }
     }
 }

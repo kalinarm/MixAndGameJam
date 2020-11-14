@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/MixJam/Scene/MenuScene.unity
+    guid: 1a59c7c5d6d332f49a1861c3e7107bc9
+  - enabled: 1
     path: Assets/MixJam/Scene/TestScene.unity
     guid: c35f3eabb4dd54d4d806b7dda932e454
   m_configObjects: {}

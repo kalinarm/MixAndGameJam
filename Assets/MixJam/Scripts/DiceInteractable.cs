@@ -78,6 +78,19 @@ namespace MG
 
 
         #region collision
+        void OnCollisionEnter(Collision col)
+        {
+            float volumeScale = Mathf.InverseLerp(0f, 50f, col.relativeVelocity.magnitude);
+            DiceInteractable dice = col.gameObject.GetComponent<DiceInteractable>();
+            if (dice != null)
+            {
+                audioCollideSelf.trigger(gameObject, volumeScale);
+                return;
+            }
+
+            audioCollideWall.trigger(gameObject, volumeScale);
+        }
+
         void OnTriggerEnter(Collider other)
         {
             DiceZone zone = other.GetComponent<DiceZone>();

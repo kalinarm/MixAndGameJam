@@ -1219,6 +1219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb704759519511488dd2ebc6e233c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continueGame: {fileID: 0}
 --- !u!114 &2139297364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2500,6 +2501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3666244796555110075, guid: c808683d6c8da4c4f90b8de3b59416b3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8713674472981677712, guid: c808683d6c8da4c4f90b8de3b59416b3,
         type: 3}

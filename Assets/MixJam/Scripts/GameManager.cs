@@ -62,6 +62,8 @@ namespace MG
 
         public List<GameObject> winnObjects = new List<GameObject>();
 
+        const string playerLevelKey = "STAGE_INDEX";
+
         public static EventManager Events
         {
             get
@@ -78,6 +80,11 @@ namespace MG
             }
             evtMgr.AddListener<Evt.DicePickNumber>(onDicePickNumber);
             evtMgr.AddListener<Evt.PlayerAtGoal>(onPlayerAtGoal);
+
+            if (level != null)
+            {
+                setGameIndex(level.levelIndex);
+            }
         }
         void Update()
         {
@@ -122,6 +129,11 @@ namespace MG
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        public void onNewGame()
+        {
+            resetGameIndex();
+            nextLevel();
+        }
         public void nextLevel()
         {
             int index = SceneManager.GetActiveScene().buildIndex + 1;
@@ -131,6 +143,29 @@ namespace MG
         public void backToMenu()
         {
             SceneManager.LoadScene(0);
+        }
+        public void continueGame()
+        {
+            if (!canContinueGame())
+            {
+                SceneManager.LoadScene(1);
+                return;
+            }
+            int levelIndex = PlayerPrefs.GetInt(playerLevelKey);
+            SceneManager.LoadScene(levelIndex);
+        }
+        public bool canContinueGame()
+        {
+            return PlayerPrefs.HasKey(playerLevelKey);
+        }
+        public void resetGameIndex()
+        {
+            PlayerPrefs.DeleteKey(playerLevelKey);
+        }
+
+        void setGameIndex(int index)
+        {
+            PlayerPrefs.SetInt(playerLevelKey, index);
         }
 
         #region callback

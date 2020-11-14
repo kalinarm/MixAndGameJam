@@ -1,25 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 namespace MG
 {
     public class GameUI : MonoBehaviour
     {
+        public Button continueGame;
+
+        void OnEnable()
+        {
+            if (continueGame != null) continueGame.interactable = (GameManager.Instance.canContinueGame());
+        }
+
         public void restartLevel()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameManager.Instance.restartLevel();
         }
         public void nextLevel()
         {
-            int index = SceneManager.GetActiveScene().buildIndex + 1;
-            if (index > SceneManager.sceneCountInBuildSettings) return;
-            SceneManager.LoadScene(index);
+            GameManager.Instance.nextLevel();
+        }
+        public void clickNewGame()
+        {
+            GameManager.Instance.onNewGame();
         }
         public void backToMenu()
         {
-            SceneManager.LoadScene(0);
+            GameManager.Instance.backToMenu();
+        }
+        public void clickContinueGame()
+        {
+            GameManager.Instance.continueGame();
         }
     }
 }

@@ -10,13 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca85e7e1e482cca45857a6da07d70d29, type: 3}
-  m_Name: DiceExitZone
+  m_Name: diceExitZone
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: cf87f468147c8b04da02ac0e4444ab40, type: 3}
   clipsRandom: []
   channel: {fileID: 0}
-  volume: 1
+  volume: 0.05
   pitch: 1
-  soundType: 0
+  useRandomPitch: 0
+  randomPitch: {x: 0.9, y: 1.1}
+  soundType: 1
   minDistance: 10
   maxDistance: 100
+  vfx: {fileID: 0}
+  vfxPosOffset: {x: 0, y: 0, z: 0}

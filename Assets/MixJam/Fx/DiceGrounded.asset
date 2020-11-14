@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca85e7e1e482cca45857a6da07d70d29, type: 3}
-  m_Name: DiceGrounded
+  m_Name: diceGrounded
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 4f480db9ac42cf24eba02338a5b85fb0, type: 3}
   clipsRandom: []
@@ -19,7 +19,7 @@ MonoBehaviour:
   pitch: 1
   useRandomPitch: 0
   randomPitch: {x: 0.9, y: 1.1}
-  soundType: 0
+  soundType: 1
   minDistance: 10
   maxDistance: 100
   vfx: {fileID: 1845240806346120, guid: b395d5d6eb4b4b846acc021ee036b744, type: 3}

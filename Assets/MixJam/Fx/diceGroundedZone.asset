@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca85e7e1e482cca45857a6da07d70d29, type: 3}
   m_Name: diceGroundedZone
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 3f78a4c67579c0243acf824ff3d1e0b3, type: 3}
   clipsRandom: []
   channel: {fileID: 0}
-  volume: 1
+  volume: 0.7
   pitch: 1
   useRandomPitch: 0
   randomPitch: {x: 0.9, y: 1.1}
-  soundType: 0
+  soundType: 1
   minDistance: 10
   maxDistance: 100
   vfx: {fileID: 0}

@@ -32,6 +32,13 @@ namespace MG
                 if (obj != null)
                 {
                     interactor.addGrabbedObject(obj);
+                }else
+                {
+                    StartZone diceZone = returnPointedZone();
+                    if (diceZone != null && diceZone.dice != null && diceZone.dice.isGrabbable())
+                    {
+                        interactor.addGrabbedObject(diceZone.dice);
+                    }
                 }
             }
         }
@@ -55,6 +62,19 @@ namespace MG
             {
                 r = item.collider.gameObject.GetComponent<Interactable>();
                 if (r != null && r.isGrabbable()) return r;
+            }
+            return null;
+        }
+
+        StartZone returnPointedZone()
+        {
+            StartZone r = null;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit[] hits = Physics.RaycastAll(ray, 100, layerInteractable, QueryTriggerInteraction.Collide);
+            foreach (var item in hits)
+            {
+                r = item.collider.gameObject.GetComponent<StartZone>();
+                if (r != null) return r;
             }
             return null;
         }

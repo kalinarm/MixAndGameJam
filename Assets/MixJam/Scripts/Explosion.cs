@@ -9,8 +9,11 @@ namespace MG
         public float range = 1;
         public float duration = 2f;
         public float durationBig = 0.5f;
+        public float forceApplied = 10f;
 
         public float effectiveRange;
+
+        public List<Rigidbody> excludeRigidFromForceApplied = new List<Rigidbody>();
 
         public void setRange(int number)
         {
@@ -45,6 +48,12 @@ namespace MG
                 {
                     obstacle.autodestroy();
                 }
+            }
+
+            Rigidbody rb = other.GetComponent<Rigidbody>();
+            if (rb != null && !rb.isKinematic && !excludeRigidFromForceApplied.Contains(rb))
+            {
+                rb.AddForce(forceApplied * (rb.transform.position - transform.position).normalized, ForceMode.Impulse);
             }
         }
     }

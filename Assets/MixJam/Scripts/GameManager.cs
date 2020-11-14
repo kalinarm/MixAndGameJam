@@ -54,6 +54,7 @@ namespace MG
         #endregion
 
         public GameManagerData data;
+        public LevelData level;
 
         EventManager evtMgr = new EventManager();
 
@@ -143,6 +144,7 @@ namespace MG
             if (evt.dice.diceType == DiceInteractable.DICE_TYPE.BOOM)
             {
                 Explosion expl = GameObject.Instantiate(data.diceExplosion);
+                expl.excludeRigidFromForceApplied.Add(evt.dice.GetComponent<Rigidbody>());
                 expl.transform.position = evt.dice.transform.position;
                 expl.setRange(finalNumber);
             }

@@ -14,7 +14,8 @@ namespace MG
             BRAKE,
             JUMP,
             SHOOT,
-            BOOM
+            BOOM,
+            SHIELD
         }
         [Header("Dice")]
         public string id;

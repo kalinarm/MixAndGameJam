@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca85e7e1e482cca45857a6da07d70d29, type: 3}
-  m_Name: DiceExitZone
+  m_Name: ProjectileHitAvatar
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: cf87f468147c8b04da02ac0e4444ab40, type: 3}
+  clip: {fileID: 0}
   clipsRandom: []
   channel: {fileID: 0}
-  volume: 0.05
+  volume: 1
   pitch: 1
   useRandomPitch: 0
   randomPitch: {x: 0.9, y: 1.1}
-  soundType: 1
+  soundType: 0
   minDistance: 10
   maxDistance: 100
-  vfx: {fileID: 0}
+  vfx: {fileID: 100000, guid: 979632a27455af442bd2d8f36eb0ffce, type: 3}
   vfxPosOffset: {x: 0, y: 0, z: 0}

@@ -16,7 +16,7 @@ namespace MG
 
         void Start()
         {
-
+            configure();
         }
 
         [EditorButton]

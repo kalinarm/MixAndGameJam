@@ -7,6 +7,7 @@ namespace MG
     public class GameManagerData : ScriptableObject
     {
         public Explosion diceExplosion;
+        public Shield diceShield;
 
         public GameObject fxDicePickNumber;
 

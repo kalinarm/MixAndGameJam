@@ -84,6 +84,11 @@ namespace MG
             evtMgr.doStep(Time.deltaTime);
         }
 
+        public GameObject getPlayerAvatar()
+        {
+            if (controlled.Count == 0) return null;
+            return controlled[0].gameObject;
+        }
         public static void triggerFx(GameObject prefab, Vector3 pos, Fx.FxParams parameters = null)
         {
             if (prefab == null) return;
@@ -147,6 +152,13 @@ namespace MG
                 expl.excludeRigidFromForceApplied.Add(evt.dice.GetComponent<Rigidbody>());
                 expl.transform.position = evt.dice.transform.position;
                 expl.setRange(finalNumber);
+            }
+            else if (evt.dice.diceType == DiceInteractable.DICE_TYPE.SHIELD)
+            {
+                Shield expl = GameObject.Instantiate(data.diceShield);
+                expl.init(evt.dice, evt.number);
+                expl.transform.position = evt.dice.transform.position;
+                //expl.transform.SetParent(evt.dice.transform);
             }
 
             foreach (var item in controlled)

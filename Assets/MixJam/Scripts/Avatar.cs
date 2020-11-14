@@ -43,14 +43,22 @@ namespace MG
                 default:
                     break;
             }
-
         }
+
+
+
+        public void recoil(Vector3 direction)
+        {
+            rigid.AddForce(direction);
+        }
+
 
         IEnumerator routineMove(int number)
         {
             float t = 0f;
             WaitForEndOfFrame wait = new WaitForEndOfFrame();
             float sens = number > 0 ? 1f : -1f;
+
             while(t<=timeAction * Mathf.Abs(number))
             {
                 //transform.Translate(Vector3.forward * speed * Time.deltaTime * sens, Space.Self);

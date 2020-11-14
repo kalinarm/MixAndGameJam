@@ -22,11 +22,17 @@ namespace MG
         [Header("Config")]
         public float volume = 1f;
         public float pitch = 1f;
+        public bool useRandomPitch = false;
+        public Vector2 randomPitch = new Vector2(0.9f, 1.1f);
 
         [Header("spatialize")]
         public SOUND_TYPE soundType = SOUND_TYPE.EMIT_3D;
         public float minDistance = 10f;
         public float maxDistance = 100f;
+
+        [Header("VFX")]
+        public GameObject vfx;
+        public Vector3 vfxPosOffset;
 
         public AudioClip Clip
         {
@@ -57,6 +63,15 @@ namespace MG
             float delay = configureSource(source, volumeScale, pitchScale);
             source.Play();
             GlobalAudioManager.Instance.StartCoroutine(routineClearAudioSource(source, delay));
+            createVfx(vfx, obj.transform.position);
+        }
+
+        void createVfx(GameObject prefab, Vector3 pos)
+        {
+            if (prefab == null) return;
+            GameObject obj = GameObject.Instantiate(prefab);
+            obj.transform.position = pos + vfxPosOffset;
+            obj.AddComponent<Helpers.Temporary>();
         }
 
         public float configureSource(AudioSource source, float volumeScale = 1f, float pitchScale = 1f)
@@ -69,7 +84,14 @@ namespace MG
             source.clip = trigger.Clip;
             source.outputAudioMixerGroup = trigger.channel;
             source.volume = trigger.volume * volumeScale;
-            source.pitch = trigger.pitch * pitchScale;
+            if (trigger.useRandomPitch)
+            {
+                source.pitch = Random.Range(trigger.randomPitch.x, trigger.randomPitch.y) * trigger.pitch;
+            }else
+            {
+                source.pitch = trigger.pitch * pitchScale;
+            }
+            
 
             source.spatialBlend = trigger.soundType == SOUND_TYPE.EMIT_3D ? 1f : 0f;
             source.minDistance = trigger.minDistance;

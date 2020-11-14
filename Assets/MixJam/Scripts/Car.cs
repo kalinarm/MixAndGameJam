@@ -7,13 +7,35 @@ namespace MG
     public class Car : Orderable
     {
         public float speed = 1f;
+        public float turnSpeed = 1f;
         public float timeAction = 2f;
 
         public override void onDiceLaunched(DiceInteractable dice, int number, DiceZone zone = null)
         {
             base.onDiceLaunched(dice, number);
+            switch (dice.diceType)
+            {
+                case DiceInteractable.DICE_TYPE.NONE:
+                    break;
+                case DiceInteractable.DICE_TYPE.MOVE_FORWARD:
+                    StartCoroutine(routineMove(number));
+                    break;
+                case DiceInteractable.DICE_TYPE.TURN_LEFT:
+                    StartCoroutine(routineTurn(number, -1));
+                    break;
+                case DiceInteractable.DICE_TYPE.TURN_RIGHT:
+                    StartCoroutine(routineTurn(number, 1));
+                    break;
+                case DiceInteractable.DICE_TYPE.BRAKE:
+                    break;
+                case DiceInteractable.DICE_TYPE.JUMP:
+                    break;
+                case DiceInteractable.DICE_TYPE.SHOOT:
+                    break;
+                default:
+                    break;
+            }
 
-            StartCoroutine(routineMove(number));
         }
 
         IEnumerator routineMove(int number)
@@ -23,6 +45,17 @@ namespace MG
             while(t<=timeAction * number)
             {
                 transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
+                yield return wait;
+                t += Time.deltaTime;
+            }
+        }
+        IEnumerator routineTurn(int number, int left)
+        {
+            float t = 0f;
+            WaitForEndOfFrame wait = new WaitForEndOfFrame();
+            while (t <= timeAction * number)
+            {
+                transform.Rotate(Vector3.up * turnSpeed * left * Time.deltaTime, Space.Self);
                 yield return wait;
                 t += Time.deltaTime;
             }

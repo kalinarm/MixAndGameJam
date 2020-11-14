@@ -45,9 +45,7 @@ namespace MG
         public override void influenceVelocity(Vector3 velocity, float timeLaunch, float timeInfluence)
         {
             float n = 1f - Mathf.Clamp01(timeLaunch / timeInfluence);
-            Debug.Log("influence " + n);
             rigid.AddForce(velocity * n * Time.deltaTime);
-            
         }
 
         DiceZone getZone()
@@ -92,7 +90,7 @@ namespace MG
             number = pickNumber();
             Debug.Log("dice stopped : picking a number : " + number);
             GameManager.Events.Trigger(new Evt.DicePickNumber(this, number, getZone()));
-            audioGrounded.trigger(gameObject);
+            if (audioGrounded != null) audioGrounded.trigger(gameObject);
             stopLaunch();
         }
 
@@ -125,9 +123,9 @@ namespace MG
                 if (!currentZones.Contains(zone))
                 {
                     currentZones.Add(zone);
+                    if (audioZoneEnter != null) audioZoneEnter.trigger(gameObject);
                 }
             }
-            audioZoneEnter.trigger(gameObject);
         }
 
         void OnTriggerExit(Collider other)
@@ -138,9 +136,9 @@ namespace MG
                 if (currentZones.Contains(zone))
                 {
                     currentZones.Remove(zone);
+                    if (audioZoneExit != null) audioZoneExit.trigger(gameObject);
                 }
             }
-            audioZoneExit.trigger(gameObject);
         }
         #endregion
     }

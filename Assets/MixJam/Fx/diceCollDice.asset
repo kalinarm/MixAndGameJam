@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca85e7e1e482cca45857a6da07d70d29, type: 3}
-  m_Name: diceCollDice
+  m_Name: DiceCollDice
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 77a0f9c59b8fbf7469bbb7098ac842c0, type: 3}
   clipsRandom: []

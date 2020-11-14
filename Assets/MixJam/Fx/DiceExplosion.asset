@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca85e7e1e482cca45857a6da07d70d29, type: 3}
-  m_Name: DiceLaunch
+  m_Name: ObstacleDestroy
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 25930480b7e9c7841887ac188062aab2, type: 3}
+  clip: {fileID: 0}
   clipsRandom: []
   channel: {fileID: 0}
-  volume: 0.3
-  pitch: 0.5
-  useRandomPitch: 1
-  randomPitch: {x: 0.9, y: 1}
-  soundType: 1
+  volume: 1
+  pitch: 1
+  useRandomPitch: 0
+  randomPitch: {x: 0.9, y: 1.1}
+  soundType: 0
   minDistance: 10
   maxDistance: 100
-  vfx: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  vfx: {fileID: 0}
   vfxPosOffset: {x: 0, y: 0, z: 0}

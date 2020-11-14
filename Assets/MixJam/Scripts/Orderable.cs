@@ -6,7 +6,7 @@ namespace MG
 {
     public class Orderable : MonoBehaviour
     {
-        public virtual void onDiceLaunched(DiceInteractable dice, int number)
+        public virtual void onDiceLaunched(DiceInteractable dice, int number, DiceZone zone = null)
         {
 
         }

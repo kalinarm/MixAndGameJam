@@ -9,7 +9,7 @@ namespace MG
         public float speed = 1f;
         public float timeAction = 2f;
 
-        public override void onDiceLaunched(DiceInteractable dice, int number)
+        public override void onDiceLaunched(DiceInteractable dice, int number, DiceZone zone = null)
         {
             base.onDiceLaunched(dice, number);
 

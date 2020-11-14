@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MixJam/Scene/Level3.unity
     guid: 6ad0cc6b857b2524f8465132505bb5b4
+  - enabled: 1
+    path: Assets/MixJam/Scene/Level4.unity
+    guid: c914767d5d7e200478938987dd82b3f4
   m_configObjects: {}

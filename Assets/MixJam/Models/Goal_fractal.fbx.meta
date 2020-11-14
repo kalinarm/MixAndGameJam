@@ -15,9 +15,15 @@ ModelImporter:
     400008: Point.001
     2000000: Camera
     2100000: No Name
+    2100002: Material.002
+    2100004: Material.001
+    2100006: Material
     2300000: Cube
+    2300002: //RootNode
     3300000: Cube
+    3300002: //RootNode
     4300000: Cube
+    4300002: goal_fractal
     10800000: Point
     10800002: Point.001
   externalObjects: {}

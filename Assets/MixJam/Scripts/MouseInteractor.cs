@@ -14,6 +14,8 @@ namespace MG
         public float launchMultiplicator = 5f;
         public float launchUpMultiplicator = 5f;
         public float launchAngularVelocity = 1f;
+        public float postLaunchFactorControl = 1f;
+        public float postLaunchTimeInfluence = 4f;
 
         Vector3 currentVelocity;
 
@@ -40,7 +42,9 @@ namespace MG
                         interactor.addGrabbedObject(diceZone.dice);
                     }
                 }
+                return;
             }
+            interactor.influenceLastLaunchedObject(Vector3.Scale(new Vector3(1f,0f,1f),currentVelocity) * postLaunchFactorControl, postLaunchTimeInfluence);
         }
 
         bool isActionGrab()

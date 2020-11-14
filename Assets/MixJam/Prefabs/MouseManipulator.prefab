@@ -144,7 +144,9 @@ MonoBehaviour:
   planeOffset: 5
   launchMultiplicator: 1
   launchUpMultiplicator: 2
-  launchAngularVelocity: 5
+  launchAngularVelocity: 500
+  postLaunchFactorControl: 50
+  postLaunchTimeInfluence: 3
 --- !u!114 &7605093819860455669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,9 +160,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbed: []
+  lastLaunched: []
   rigid: {fileID: 3505449113050026332}
-  attachForce: 50
-  attachViscosity: 100
+  attachForce: 20000
+  attachViscosity: 70000
+  timeLaunch: 0
 --- !u!54 &3505449113050026332
 Rigidbody:
   m_ObjectHideFlags: 0

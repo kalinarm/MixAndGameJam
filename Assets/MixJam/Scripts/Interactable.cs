@@ -6,6 +6,7 @@ namespace MG
     public class Interactable : MonoBehaviour
     {
         [SerializeField] bool grabbable = true;
+        public bool isInLaunch = false;
         protected Rigidbody rigid;
         public Interactor attachedInteractor;
 
@@ -90,6 +91,10 @@ namespace MG
 
 #region virtual callback
         public virtual void OnLaunched()
+        {
+
+        }
+        public virtual void influenceVelocity(Vector3 velocity, float timeLaunch, float timeInfluence)
         {
 
         }

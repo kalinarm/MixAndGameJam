@@ -55,7 +55,6 @@ namespace MG
 
         public GameManagerData data;
         public LevelData level;
-
         EventManager evtMgr = new EventManager();
 
         public List<Orderable> controlled = new List<Orderable>();
@@ -84,6 +83,11 @@ namespace MG
             if (level != null)
             {
                 setGameIndex(level.levelIndex);
+            }
+
+            if (data != null && data.audioStartLevel)
+            {
+                data.audioStartLevel.trigger(gameObject);
             }
         }
         void Update()

@@ -126,7 +126,7 @@ MonoBehaviour:
   diceFactor: 1
   attachedToDice: {fileID: 0}
   fxOnStart: {fileID: 11400000, guid: f6339ea189c74574892e40bb62f7777b, type: 2}
-  fxOnProjectileImpact: {fileID: 11400000, guid: 286cbf8798c91794ca2be60d4e92b537,
+  fxOnProjectileImpact: {fileID: 11400000, guid: d2bb48fa4161d694489978584081811d,
     type: 2}
   fxOnDie: {fileID: 11400000, guid: b6ab05e8d30b3684fac32ef1a2907b34, type: 2}
 --- !u!1001 &5519134329564823983

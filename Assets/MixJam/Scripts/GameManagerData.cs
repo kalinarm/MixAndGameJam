@@ -14,5 +14,6 @@ namespace MG
 
         public AudioTrigger audioWin;
         public AudioTrigger audioLoose;
+        public AudioTrigger audioStartLevel;
     }
 }

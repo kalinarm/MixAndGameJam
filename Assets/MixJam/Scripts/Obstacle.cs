@@ -8,6 +8,8 @@ namespace MG
     {
         public AudioTrigger fxOnDestroy;
         public bool isDectructible = true;
+        public int caseBack = 0;
+        public bool destroyOnAvatarTouch = false;
 
         public void autodestroy()
         {

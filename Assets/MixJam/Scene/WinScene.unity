@@ -512,7 +512,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0000038146973}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &79228011
@@ -528,6 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   continueGame: {fileID: 0}
+  music: {fileID: 0}
 --- !u!95 &79228012
 Animator:
   serializedVersion: 3
@@ -1457,6 +1458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 56e2dad79d1882e4aac2fb7d4542f7e2, type: 2}
   level: {fileID: 0}
+  menuScene: 1
   controlled: []
   winnObjects: []
 --- !u!4 &962645227
@@ -3100,7 +3102,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 02dd89ff79653a8488e621e7a0be53b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6d0d8f31a3de779448a192eb13964a35, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4492,6 +4494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   continueGame: {fileID: 0}
+  music: {fileID: 0}
 --- !u!114 &2139297364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5495,6 +5498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   continueGame: {fileID: 1207194555}
+  music: {fileID: 0}
 --- !u!224 &2232444320134530438
 RectTransform:
   m_ObjectHideFlags: 0

@@ -22,6 +22,6 @@ MonoBehaviour:
   soundType: 1
   minDistance: 10
   maxDistance: 100
-  vfx: {fileID: 0}
-  vfxPosOffset: {x: 0, y: 0, z: 0}
+  vfx: {fileID: 1134129239631916, guid: 7e48ba6b1b968764490bbc70b66e3fe1, type: 3}
+  vfxPosOffset: {x: 0, y: 0.5, z: 0}
   createAnotherObject: 1

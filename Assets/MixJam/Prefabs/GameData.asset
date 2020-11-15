@@ -20,6 +20,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 526955fa05fc8d6438ade8d0d70774cc, type: 2}
   - {fileID: 11400000, guid: 72d5cfd6b0bdc234ca52e49bccebf54a, type: 2}
   - {fileID: 11400000, guid: fc7422b6e7ecd7f47b5309b10a1f1d61, type: 2}
+  - {fileID: 11400000, guid: f13ad5aa2593ca34592eef93f59e6a67, type: 2}
   diceExplosion: {fileID: 4878168040361847942, guid: d626a4f161bae804d84d6d1a289510b2,
     type: 3}
   diceShield: {fileID: 3168110237180595315, guid: e6a2aea7da23b244999ed1ec0ad2d23d,

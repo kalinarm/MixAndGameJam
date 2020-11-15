@@ -56,6 +56,7 @@ namespace MG
         public GameManagerData data;
         public LevelData level;
         EventManager evtMgr = new EventManager();
+        public bool menuScene = false;
 
         public List<Orderable> controlled = new List<Orderable>();
 
@@ -79,6 +80,8 @@ namespace MG
             }
             evtMgr.AddListener<Evt.DicePickNumber>(onDicePickNumber);
             evtMgr.AddListener<Evt.PlayerAtGoal>(onPlayerAtGoal);
+
+            if (menuScene) return;
 
             if (level != null)
             {
@@ -198,14 +201,14 @@ namespace MG
             }
             triggerFx(data.fxDicePickNumber, evt.dice.transform.position, new Fx.FxParams(str, evt.dice.color));
 
-            if (evt.dice.diceType == DiceInteractable.DICE_TYPE.BOOM)
+            if (evt.dice.diceType == DiceInteractable.DICE_TYPE.BOOM && finalNumber > 0)
             {
                 Explosion expl = GameObject.Instantiate(data.diceExplosion);
                 expl.excludeRigidFromForceApplied.Add(evt.dice.GetComponent<Rigidbody>());
                 expl.transform.position = evt.dice.transform.position;
                 expl.setRange(finalNumber);
             }
-            else if (evt.dice.diceType == DiceInteractable.DICE_TYPE.SHIELD)
+            else if (evt.dice.diceType == DiceInteractable.DICE_TYPE.SHIELD && finalNumber > 0)
             {
                 Shield expl = GameObject.Instantiate(data.diceShield);
                 expl.init(evt.dice, evt.number);

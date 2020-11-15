@@ -1168,6 +1168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 56e2dad79d1882e4aac2fb7d4542f7e2, type: 2}
   level: {fileID: 0}
+  menuScene: 1
   controlled: []
   winnObjects: []
 --- !u!4 &962645227

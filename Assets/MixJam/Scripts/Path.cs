@@ -8,7 +8,7 @@ namespace MG
     public class Path : MonoBehaviour
     {
         public List<PathCase> cases = new List<PathCase>();
-        void Start()
+        void Awake()
         {
             getChildrens();
         }

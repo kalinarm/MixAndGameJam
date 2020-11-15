@@ -13,20 +13,49 @@ namespace MG
 
         public Path path;
         public int startingCaseIndex;
-        public int currentCaseIndex;
-        public int goalCaseIndex;
+        public int currentIndex;
+        public int goalIndex;
+        public int nextGoalIndex;
         bool isBlockedOnPath = false;
 
         Rigidbody rigid;
 
+        List<Obstacle> currentTouchObstacle = new List<Obstacle>();
+
+        public int GoalIndex
+        {
+            get => goalIndex;
+            set
+            {
+                goalIndex = Mathf.Max(0, value);
+                //goalIndex = value;
+                Debug.Log("goalIndex=" + goalIndex);
+            }
+        }
+
+        public int CurrentIndex
+        {
+            get => currentIndex;
+            set
+            {
+                currentIndex = Mathf.Max(0, value);
+                //currentIndex = value;
+                Debug.Log("currentCaseIndex=" + currentIndex);
+            }
+        }
+
         void Start()
         {
             rigid = GetComponent<Rigidbody>();
-            currentCaseIndex = startingCaseIndex;
+            CurrentIndex = startingCaseIndex;
             path = GameObject.FindObjectOfType<Path>();
             if (path != null)
             {
                 rigid.constraints = RigidbodyConstraints.FreezeAll;
+                transform.position = path.getCase(startingCaseIndex).transform.position;
+                CurrentIndex = startingCaseIndex;
+                GoalIndex = startingCaseIndex;
+                nextGoalIndex = startingCaseIndex;
                 StartCoroutine(routinePath());
             }
         }
@@ -65,16 +94,16 @@ namespace MG
         {
             if (path != null)
             {
+                GoalIndex = CurrentIndex - 1;
                 isBlockedOnPath = true;
-                addToGoalCaseIndex(-1);
             }
             else rigid.AddForce(direction);
         }
 
-        void addToGoalCaseIndex(int i )
+        void addToGoalCaseIndex(int i)
         {
-            if (isBlockedByObstacle() || isBlockedOnPath) return;
-            goalCaseIndex += i;
+            if ((isBlockedByObstacle() || isBlockedOnPath) && i > 0) return;
+            GoalIndex = GoalIndex + i;
         }
 
         IEnumerator routinePath()
@@ -84,20 +113,21 @@ namespace MG
             while (true)
             {
                 yield return wait;
-                if (goalCaseIndex != currentCaseIndex)
+                if (GoalIndex != CurrentIndex)
                 {
-                    int dif = goalCaseIndex > currentCaseIndex ? 1 : -1;
-                    yield return StartCoroutine(routineChangeCase(currentCaseIndex + dif));
+                    nextGoalIndex += GoalIndex > CurrentIndex ? 1 : -1;
+                    yield return StartCoroutine(routineChangeCase());
                 }
             }
         }
-        IEnumerator routineChangeCase(int goal)
+        IEnumerator routineChangeCase()
         {
-            Debug.Log("change case for " + goal);
+            Debug.Log("change case for " + nextGoalIndex);
             float t = 0f;
             WaitForEndOfFrame wait = new WaitForEndOfFrame();
-            Vector3 dest = path.getCasePos(goal);
-            Vector3 pos = path.getCasePos(currentCaseIndex);
+            Vector3 dest = path.getCasePos(nextGoalIndex);
+            Vector3 pos = path.getCasePos(CurrentIndex);
+
             while (t <= timeAction && !isBlockedOnPath && !isBlockedByObstacle())
             {
                 transform.position = Vector3.Lerp(pos, dest, t / timeAction);
@@ -106,10 +136,14 @@ namespace MG
             }
             if ((dest - transform.position).sqrMagnitude < 0.1f)
             {
-                currentCaseIndex = goal;
+                CurrentIndex = nextGoalIndex;
             }
-            
-            Vector3 destNext = path.getCasePos(currentCaseIndex + 1);
+            else
+            {
+                GoalIndex = CurrentIndex;
+            }
+
+            Vector3 destNext = path.getCasePos(CurrentIndex + 1);
             if (destNext != dest)
             {
                 float angle;
@@ -121,12 +155,36 @@ namespace MG
                 } while (angle > 1f);
             }
 
-            if (isBlockedOnPath || isBlockedByObstacle())
+            if (isBlockedOnPath /*|| isBlockedByObstacle()*/)
             {
                 isBlockedOnPath = false;
-                goalCaseIndex = currentCaseIndex;
             }
-            
+        }
+        IEnumerator routineMoveToCase(Vector3 start, Vector3 dest)
+        {
+            WaitForEndOfFrame wait = new WaitForEndOfFrame();
+            float t = 0f;
+            while (t <= timeAction)
+            {
+                transform.position = Vector3.Lerp(start, dest, t / timeAction);
+                yield return wait;
+                t += Time.deltaTime;
+            }
+        }
+        IEnumerator routineRotateCase(Vector3 pos)
+        {
+            WaitForEndOfFrame wait = new WaitForEndOfFrame();
+            Vector3 destNext = path.getCasePos(CurrentIndex + 1);
+            if (destNext != pos)
+            {
+                float angle;
+                do
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(destNext - pos), 3f * turnSpeed * Time.deltaTime);
+                    angle = Vector3.Angle(destNext - pos, transform.forward);
+                    yield return wait;
+                } while (angle > 1f);
+            }
         }
 
         IEnumerator routineMove(int number)
@@ -135,7 +193,7 @@ namespace MG
             WaitForEndOfFrame wait = new WaitForEndOfFrame();
             float sens = number > 0 ? 1f : -1f;
 
-            while(t<=timeAction * Mathf.Abs(number))
+            while (t <= timeAction * Mathf.Abs(number))
             {
                 //transform.Translate(Vector3.forward * speed * Time.deltaTime * sens, Space.Self);
                 rigid.velocity = transform.forward * speed * sens * diceFactor;
@@ -167,7 +225,8 @@ namespace MG
             return currentTouchObstacle.Count > 0;
         }
 
-        List<Obstacle> currentTouchObstacle = new List<Obstacle>();
+
+
         void OnCollisionEnter(Collision col)
         {
             Obstacle o = col.collider.GetComponent<Obstacle>();

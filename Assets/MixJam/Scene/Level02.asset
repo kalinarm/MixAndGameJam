@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de292a2467e995c44913b999931826a1, type: 3}
-  m_Name: Level2
+  m_Name: Level02
   m_EditorClassIdentifier: 
   title: Special Zone
-  instruction: Launch dice in zone to apply special effect
+  instruction: Launch dice in x2 zone to apply special effect
   levelIndex: 2

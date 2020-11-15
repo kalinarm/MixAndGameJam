@@ -42,6 +42,7 @@ namespace MG
             }
 
             if (onHitSomethingElse != null) onHitSomethingElse.trigger(gameObject);
+            autodestroy();
         }
     }
 }

@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 92606134785906905, guid: a3fd4d94eaa028d47831e0f8880ca118, type: 3}
   shootPos: {fileID: 731273994099091740}
-  shootPeriod: 5
+  shootPeriod: 2
 --- !u!1 &3627768410377893934
 GameObject:
   m_ObjectHideFlags: 0

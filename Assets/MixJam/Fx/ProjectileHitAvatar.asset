@@ -15,7 +15,7 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: f5109b40b3907c24d99adce49c4ff1f7, type: 3}
   clipsRandom: []
   channel: {fileID: 0}
-  volume: 0.3
+  volume: 0.27
   pitch: 1.3
   useRandomPitch: 1
   randomPitch: {x: 0.9, y: 1}
@@ -24,3 +24,4 @@ MonoBehaviour:
   maxDistance: 100
   vfx: {fileID: 100000, guid: 979632a27455af442bd2d8f36eb0ffce, type: 3}
   vfxPosOffset: {x: 0, y: 0, z: 0}
+  createAnotherObject: 0

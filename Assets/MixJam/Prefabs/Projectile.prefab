@@ -124,7 +124,7 @@ MonoBehaviour:
   speed: 10
   lifetime: 5
   recoilForce: 10000
-  onCreate: {fileID: 0}
+  onCreate: {fileID: 11400000, guid: e80b68cd2b723524ea934c354e692db4, type: 2}
   onDestroy: {fileID: 0}
   onHitPlayer: {fileID: 11400000, guid: 9538dee1d94e32d4ca092c8a419dacf4, type: 2}
   onHitSomethingElse: {fileID: 0}

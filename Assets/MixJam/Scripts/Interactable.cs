@@ -18,6 +18,7 @@ namespace MG
         public AudioTrigger audioZoneEnter;
         public AudioTrigger audioZoneExit;
         public AudioTrigger audioGrounded;
+        public AudioTrigger audioGroundedZone;
 
         public virtual void Start()
         {

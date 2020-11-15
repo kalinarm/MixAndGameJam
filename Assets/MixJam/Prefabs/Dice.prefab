@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbable: 1
+  isInLaunch: 0
   attachedInteractor: {fileID: 0}
   audioGrab: {fileID: 11400000, guid: 303682fa9146b3b46b02fa3bdec70ce3, type: 2}
   audioLaunch: {fileID: 11400000, guid: 41fd617b3a8125041a42b28933cc024f, type: 2}
@@ -115,6 +116,7 @@ MonoBehaviour:
   audioZoneEnter: {fileID: 11400000, guid: a90e40414964672479b036de40dd5bff, type: 2}
   audioZoneExit: {fileID: 11400000, guid: a646fcfb16543fc46afe537151d5c11a, type: 2}
   audioGrounded: {fileID: 11400000, guid: bafab669ca0deb24cb761d3058736839, type: 2}
+  audioGroundedZone: {fileID: 11400000, guid: aa8391ce81e3c4b449d50a75cfac7f9d, type: 2}
   id: Forward
   diceType: 1
   color: {r: 0.07450981, g: 0.27450982, b: 0.61960787, a: 1}

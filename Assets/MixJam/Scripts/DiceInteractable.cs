@@ -89,8 +89,16 @@ namespace MG
             } while (angularVel > 0.01f);
             number = pickNumber();
             Debug.Log("dice stopped : picking a number : " + number);
-            GameManager.Events.Trigger(new Evt.DicePickNumber(this, number, getZone()));
-            if (audioGrounded != null) audioGrounded.trigger(gameObject);
+            DiceZone zone = getZone();
+            GameManager.Events.Trigger(new Evt.DicePickNumber(this, number, zone));
+            if (zone != null)
+            {
+                if (audioGroundedZone != null) audioGroundedZone.trigger(gameObject);
+            }else
+            {
+                if (audioGrounded != null) audioGrounded.trigger(gameObject);
+            }
+            
             stopLaunch();
         }
 

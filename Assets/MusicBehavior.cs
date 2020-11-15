@@ -5,7 +5,7 @@ using UnityEngine;
 public class MusicBehavior : MonoBehaviour
 {
     public static bool musicTriggered;
-    AudioSource audioSource;
+    public static AudioSource audioSource;
     public float fadeInTime;
 
     private void Awake()
@@ -24,5 +24,13 @@ public class MusicBehavior : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public static void Mute(bool mute)
+    {
+        if (mute)
+            audioSource.volume = 0;
+        else
+            audioSource.volume = VolumeFadingMusic.volOriginal;
     }
 }

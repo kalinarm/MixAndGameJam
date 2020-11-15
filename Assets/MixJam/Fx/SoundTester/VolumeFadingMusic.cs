@@ -6,7 +6,7 @@ public class VolumeFadingMusic : MonoBehaviour
 {
     public AnimationCurve fadeCurve;
 
-    float volOriginal;
+    public static float volOriginal;
     float vol;
 
     IEnumerator volFade;

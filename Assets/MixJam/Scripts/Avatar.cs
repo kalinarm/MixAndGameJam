@@ -15,8 +15,8 @@ namespace MG
         public int startingCaseIndex;
         public int currentIndex;
         public int goalIndex;
-        public int nextGoalIndex;
-        bool isBlockedOnPath = false;
+        //public int nextGoalIndex;
+        bool isStoppedByProjectile = false;
 
         Rigidbody rigid;
 
@@ -29,7 +29,7 @@ namespace MG
             {
                 goalIndex = Mathf.Max(0, value);
                 //goalIndex = value;
-                Debug.Log("goalIndex=" + goalIndex);
+                Debug.Log("goalIndex=" + goalIndex + " - " + value);
             }
         }
 
@@ -55,7 +55,7 @@ namespace MG
                 transform.position = path.getCase(startingCaseIndex).transform.position;
                 CurrentIndex = startingCaseIndex;
                 GoalIndex = startingCaseIndex;
-                nextGoalIndex = startingCaseIndex;
+                //nextGoalIndex = startingCaseIndex;
                 StartCoroutine(routinePath());
             }
         }
@@ -92,74 +92,69 @@ namespace MG
 
         public void recoil(Vector3 direction)
         {
+            //Debug.Log("recoil begin goal index " + goalIndex);
             if (path != null)
             {
-                GoalIndex = CurrentIndex - 1;
-                isBlockedOnPath = true;
+                GoalIndex = currentIndex - 1;
+                isStoppedByProjectile = true;
             }
             else rigid.AddForce(direction);
+            //Debug.Log("recoil end goal index " + goalIndex);
+        }
+
+        bool isBlocked()
+        {
+            return (isStoppedByProjectile || isBlockedByObstacle());
         }
 
         void addToGoalCaseIndex(int i)
         {
-            if ((isBlockedByObstacle() || isBlockedOnPath) && i > 0) return;
+            if ((isBlockedByObstacle() || isStoppedByProjectile) && i > 0) return;
             GoalIndex = GoalIndex + i;
         }
 
         IEnumerator routinePath()
         {
             WaitForEndOfFrame wait = new WaitForEndOfFrame();
-            yield return StartCoroutine(routineChangeCase(startingCaseIndex));
+            yield return StartCoroutine(routineChangeCase());
             while (true)
             {
                 yield return wait;
                 if (GoalIndex != CurrentIndex)
                 {
-                    nextGoalIndex += GoalIndex > CurrentIndex ? 1 : -1;
                     yield return StartCoroutine(routineChangeCase());
                 }
             }
         }
         IEnumerator routineChangeCase()
         {
-            Debug.Log("change case for " + nextGoalIndex);
-            float t = 0f;
-            WaitForEndOfFrame wait = new WaitForEndOfFrame();
-            Vector3 dest = path.getCasePos(nextGoalIndex);
-            Vector3 pos = path.getCasePos(CurrentIndex);
-
-            while (t <= timeAction && !isBlockedOnPath && !isBlockedByObstacle())
+            while (GoalIndex != currentIndex)
             {
-                transform.position = Vector3.Lerp(pos, dest, t / timeAction);
-                yield return wait;
-                t += Time.deltaTime;
-            }
-            if ((dest - transform.position).sqrMagnitude < 0.1f)
-            {
-                CurrentIndex = nextGoalIndex;
-            }
-            else
-            {
-                GoalIndex = CurrentIndex;
-            }
-
-            Vector3 destNext = path.getCasePos(CurrentIndex + 1);
-            if (destNext != dest)
-            {
-                float angle;
-                do
+                if (isBlockedByObstacle() && !isStoppedByProjectile)
                 {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(destNext - dest), 3f * turnSpeed * Time.deltaTime);
-                    angle = Vector3.Angle(destNext - dest, transform.forward);
-                    yield return wait;
-                } while (angle > 1f);
+                    GoalIndex = currentIndex;
+                    yield break;
+                }
+                int nextGoalIndex = CurrentIndex + (GoalIndex > CurrentIndex ? 1 : -1);
+                Vector3 dest = path.getCasePos(nextGoalIndex);
+                Vector3 pos = path.getCasePos(CurrentIndex);
+                yield return StartCoroutine(routineMoveToCase(pos, dest));
+                if ((dest - pos).sqrMagnitude > 0.1f)
+                {
+                    CurrentIndex = nextGoalIndex;
+                }else if (!isStoppedByProjectile)
+                {
+                    GoalIndex = currentIndex;
+                }
+                yield return StartCoroutine(routineRotateCase(currentIndex + 1));
             }
 
-            if (isBlockedOnPath /*|| isBlockedByObstacle()*/)
+            if (isStoppedByProjectile)
             {
-                isBlockedOnPath = false;
+                isStoppedByProjectile = false;
             }
         }
+
         IEnumerator routineMoveToCase(Vector3 start, Vector3 dest)
         {
             WaitForEndOfFrame wait = new WaitForEndOfFrame();
@@ -171,10 +166,11 @@ namespace MG
                 t += Time.deltaTime;
             }
         }
-        IEnumerator routineRotateCase(Vector3 pos)
+        IEnumerator routineRotateCase(int nextIndex)
         {
             WaitForEndOfFrame wait = new WaitForEndOfFrame();
-            Vector3 destNext = path.getCasePos(CurrentIndex + 1);
+            Vector3 destNext = path.getCasePos(nextIndex);
+            Vector3 pos = transform.position;
             if (destNext != pos)
             {
                 float angle;
@@ -216,7 +212,7 @@ namespace MG
 
         void setBlockOnPath()
         {
-            isBlockedOnPath = true;
+            isStoppedByProjectile = true;
         }
 
         bool isBlockedByObstacle()

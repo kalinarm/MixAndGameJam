@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca85e7e1e482cca45857a6da07d70d29, type: 3}
   m_Name: ShieldActivate
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 29e83a10ef846754cac0e4ddf9567c87, type: 3}
+  clip: {fileID: 8300000, guid: 2f1134fa35c1415449e40d9faaa720ac, type: 3}
   clipsRandom: []
   channel: {fileID: 0}
   volume: 0.5

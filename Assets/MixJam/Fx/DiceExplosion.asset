@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca85e7e1e482cca45857a6da07d70d29, type: 3}
-  m_Name: ObstacleDestroy
+  m_Name: DiceExplosion
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 4e5222cd8456805458ba43d43cf890da, type: 3}
   clipsRandom: []
   channel: {fileID: 0}
   volume: 1
   pitch: 1
-  useRandomPitch: 0
-  randomPitch: {x: 0.9, y: 1.1}
+  useRandomPitch: 1
+  randomPitch: {x: 0.9, y: 1}
   soundType: 0
   minDistance: 10
   maxDistance: 100

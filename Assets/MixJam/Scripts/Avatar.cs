@@ -29,7 +29,7 @@ namespace MG
             {
                 goalIndex = Mathf.Max(0, value);
                 //goalIndex = value;
-                Debug.Log("goalIndex=" + goalIndex + " - " + value);
+                //Debug.Log("goalIndex=" + goalIndex + " - " + value);
             }
         }
 
@@ -40,7 +40,7 @@ namespace MG
             {
                 currentIndex = Mathf.Max(0, value);
                 //currentIndex = value;
-                Debug.Log("currentCaseIndex=" + currentIndex);
+                //Debug.Log("currentCaseIndex=" + currentIndex);
             }
         }
 
@@ -233,6 +233,11 @@ namespace MG
             {
                 setBlockOnPath();
                 if (!currentTouchObstacle.Contains(o)) currentTouchObstacle.Add(o);
+                if (o.caseBack > 0)
+                {
+                    GoalIndex = currentIndex - o.caseBack;
+                    if (o.destroyOnAvatarTouch) o.autodestroy();
+                }
             }
         }
         void OnCollisionExit(Collision col)

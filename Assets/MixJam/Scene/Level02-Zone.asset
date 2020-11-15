@@ -10,12 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de292a2467e995c44913b999931826a1, type: 3}
-  m_Name: Level1
+  m_Name: Level02-Zone
   m_EditorClassIdentifier: 
-  title: Tutorial
-  instruction: 'Click on dice or zone to grab
-
-    Throw dice
-
-    And reach the trophy'
-  levelIndex: 1
+  title: Special Zone
+  instruction: Launch dice in x2 zone to apply special effect
+  levelIndex: 2

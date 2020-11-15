@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca85e7e1e482cca45857a6da07d70d29, type: 3}
   m_Name: ShieldImpact
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 0f6ff45d54e45e54b9c9c2fe2bdd7d40, type: 3}
   clipsRandom: []
   channel: {fileID: 0}
   volume: 0.05
@@ -24,3 +24,4 @@ MonoBehaviour:
   maxDistance: 100
   vfx: {fileID: 1628744458893394, guid: e243632bb3aff9549abdcfcc2ef0c4f0, type: 3}
   vfxPosOffset: {x: 0, y: 0, z: 0}
+  createAnotherObject: 0

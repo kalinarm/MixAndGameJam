@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de292a2467e995c44913b999931826a1, type: 3}
-  m_Name: Level4
+  m_Name: Level01-Tuto
   m_EditorClassIdentifier: 
-  title: Shield Needed !
-  instruction: 
-  levelIndex: 4
+  title: Tutorial
+  instruction: 'Click on dice or zone to grab
+
+    Throw dice
+
+    And reach the trophy'
+  levelIndex: 1

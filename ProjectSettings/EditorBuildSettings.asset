@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MixJam/Scene/Level06-Mix.unity
     guid: d82942bfedfbd1d4bbdb861f1a2dbf4c
+  - enabled: 1
+    path: Assets/MixJam/Scene/WinScene.unity
+    guid: e1dd6db5db67a6a4cb09d8aabff0cb1e
   m_configObjects: {}

@@ -93,6 +93,10 @@ MonoBehaviour:
   turnSpeed: 2
   timeAction: 0.5
   diceFactor: 1
+  path: {fileID: 0}
+  startingCaseIndex: 0
+  currentIndex: 0
+  goalIndex: 0
 --- !u!1001 &5819076756011514874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -160,6 +164,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.6163
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 35258a9cc64f5114090a5e21057fb96e, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4619a7ed495640447a1805f069178343, type: 2}
     - target: {fileID: 2300002, guid: 35258a9cc64f5114090a5e21057fb96e, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 

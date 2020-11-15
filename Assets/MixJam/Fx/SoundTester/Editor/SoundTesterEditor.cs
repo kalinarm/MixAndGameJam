@@ -17,6 +17,12 @@ namespace MG
                 ((SoundTester)target).PlayAudioTrigger();
             }
 
+            if (GUILayout.Button("Fade Test"))
+            {
+                ((SoundTester)target).FadeVolumeTest();
+            }
+
+
             EditorGUI.EndDisabledGroup();
         }
     }

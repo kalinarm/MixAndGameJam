@@ -15,5 +15,15 @@ namespace MG
             Debug.Log("play sound");
             audioTrigger.trigger(gameObject);
         }
+
+
+
+        public float target;
+        public float fTime;
+        public void FadeVolumeTest()
+        {
+            GetComponent<VolumeFading>().VolumeFade(audioTrigger, GetComponent<AudioSource>(), target, fTime);
+        }
+
     }
 }

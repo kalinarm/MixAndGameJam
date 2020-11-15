@@ -24,3 +24,4 @@ MonoBehaviour:
   maxDistance: 100
   vfx: {fileID: 0}
   vfxPosOffset: {x: 0, y: 0, z: 0}
+  createAnotherObject: 0

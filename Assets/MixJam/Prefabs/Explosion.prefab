@@ -112,6 +112,8 @@ MonoBehaviour:
   durationBig: 0.3
   forceApplied: 50
   effectiveRange: 0
+  excludeRigidFromForceApplied: []
+  fxStart: {fileID: 11400000, guid: 8e66b7e17a55bf044abc3dcfcc539b92, type: 2}
 --- !u!54 &54238514524893538
 Rigidbody:
   m_ObjectHideFlags: 0

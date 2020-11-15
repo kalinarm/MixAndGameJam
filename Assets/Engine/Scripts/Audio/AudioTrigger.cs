@@ -34,6 +34,9 @@ namespace MG
         public GameObject vfx;
         public Vector3 vfxPosOffset;
 
+        [Header("Other")]
+        public bool createAnotherObject = false;
+
         public AudioClip Clip
         {
             get
@@ -59,10 +62,20 @@ namespace MG
 
         public void trigger(GameObject obj, float volumeScale = 1f, float pitchScale = 1f)
         {
-            AudioSource source = obj.AddComponent<AudioSource>();
+            GameObject o = obj;
+            if (createAnotherObject && clip != null)
+            {
+                o = new GameObject("Sound");
+                o.transform.position = obj.transform.position;
+                o.AddComponent<Helpers.Temporary>().duration = clip.length + 1f;
+            }
+            AudioSource source = o.AddComponent<AudioSource>();
             float delay = configureSource(source, volumeScale, pitchScale);
             source.Play();
-            GlobalAudioManager.Instance.StartCoroutine(routineClearAudioSource(source, delay));
+            if (!createAnotherObject)
+            {
+                GlobalAudioManager.Instance.StartCoroutine(routineClearAudioSource(source, delay));
+            }
             createVfx(vfx, obj.transform.position);
         }
 

@@ -15,12 +15,13 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: eb64ded95df73294ea1859f91ec54b69, type: 3}
   clipsRandom: []
   channel: {fileID: 0}
-  volume: 0
+  volume: 0.05
   pitch: 1
   useRandomPitch: 0
   randomPitch: {x: 0.9, y: 1.1}
-  soundType: 1
+  soundType: 0
   minDistance: 10
   maxDistance: 100
-  vfx: {fileID: 0}
+  vfx: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
   vfxPosOffset: {x: 0, y: 0, z: 0}
+  createAnotherObject: 0

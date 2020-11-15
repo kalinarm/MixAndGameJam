@@ -15,6 +15,8 @@ namespace MG
 
         public List<Rigidbody> excludeRigidFromForceApplied = new List<Rigidbody>();
 
+        public AudioTrigger fxStart;
+
         public void setRange(int number)
         {
             effectiveRange = range * number;
@@ -22,6 +24,7 @@ namespace MG
 
         void Start()
         {
+            if (fxStart != null) fxStart.trigger(gameObject);
             StartCoroutine(routine());
         }
 

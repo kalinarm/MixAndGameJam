@@ -128,7 +128,7 @@ namespace MG
         }
         IEnumerator routineChangeCase()
         {
-            while (GoalIndex != currentIndex)
+            while (GoalIndex != currentIndex && !isBlockedByObstacle())
             {
                 if (isBlockedByObstacle() && !isStoppedByProjectile)
                 {
@@ -148,7 +148,10 @@ namespace MG
                 }
                 yield return StartCoroutine(routineRotateCase(currentIndex + 1));
             }
-
+            if (isBlockedByObstacle())
+            {
+                GoalIndex = currentIndex;
+            }
             if (isStoppedByProjectile)
             {
                 isStoppedByProjectile = false;

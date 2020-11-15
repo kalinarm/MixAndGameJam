@@ -27,3 +27,4 @@ MonoBehaviour:
     type: 3}
   audioWin: {fileID: 11400000, guid: bf431c3ae91efbc47820161fc5686426, type: 2}
   audioLoose: {fileID: 11400000, guid: 3232e848bfa6d374ebef24bf3b6ae7a3, type: 2}
+  audioStartLevel: {fileID: 11400000, guid: 4c7cbb1c4ca1d4548a0988cf87f19c81, type: 2}

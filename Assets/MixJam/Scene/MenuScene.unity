@@ -5005,11 +5005,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1988790193018322786, guid: 213f65509034d1b4ca1b88836d20ec69,
+        type: 3}
+      propertyPath: fadeCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988790193018322786, guid: 213f65509034d1b4ca1b88836d20ec69,
+        type: 3}
+      propertyPath: fadeCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988790193018322786, guid: 213f65509034d1b4ca1b88836d20ec69,
+        type: 3}
+      propertyPath: fadeCurve.m_Curve.Array.data[0].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988790193018322786, guid: 213f65509034d1b4ca1b88836d20ec69,
+        type: 3}
+      propertyPath: fadeCurve.m_Curve.Array.data[1].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988790193018322786, guid: 213f65509034d1b4ca1b88836d20ec69,
+        type: 3}
+      propertyPath: fadeCurve.m_Curve.Array.data[1].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988790193018322786, guid: 213f65509034d1b4ca1b88836d20ec69,
+        type: 3}
+      propertyPath: fadeCurve.m_Curve.Array.data[1].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6586712833483186017, guid: 213f65509034d1b4ca1b88836d20ec69,
         type: 3}
       propertyPath: m_Name
       value: MusicLoop
       objectReference: {fileID: 0}
+    - target: {fileID: 6586712833483186044, guid: 213f65509034d1b4ca1b88836d20ec69,
+        type: 3}
+      propertyPath: fadeInTime
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586712833483186046, guid: 213f65509034d1b4ca1b88836d20ec69,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: eebff7a948ba79e4aab0b9a8a95fe493, type: 3}
     - target: {fileID: 6586712833483186047, guid: 213f65509034d1b4ca1b88836d20ec69,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6586712833483186047}
   - component: {fileID: 6586712833483186046}
   - component: {fileID: 6586712833483186044}
+  - component: {fileID: 1988790193018322786}
   m_Layer: 0
   m_Name: MusicLoop
   m_TagString: Untagged
@@ -43,7 +44,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c6e0ae6cbe6267c4eaf177fbcde6191f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.256
   m_Pitch: 1
   Loop: 1
@@ -140,3 +141,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de519d74d1a80bc44929876455119c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeInTime: 0.5
+--- !u!114 &1988790193018322786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6586712833483186017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d21f68576f91104380c5e9c84b0c1cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

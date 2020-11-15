@@ -15,11 +15,11 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: 0f6ff45d54e45e54b9c9c2fe2bdd7d40, type: 3}
   clipsRandom: []
   channel: {fileID: 0}
-  volume: 0.3
+  volume: 0.2
   pitch: 1.3
   useRandomPitch: 1
   randomPitch: {x: 0.9, y: 1}
-  soundType: 0
+  soundType: 1
   minDistance: 10
   maxDistance: 100
   vfx: {fileID: 100000, guid: 979632a27455af442bd2d8f36eb0ffce, type: 3}

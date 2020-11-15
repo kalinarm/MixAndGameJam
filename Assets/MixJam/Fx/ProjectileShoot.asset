@@ -15,7 +15,7 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: 3c14915d4c1e6dc4da985c7252f64cfc, type: 3}
   clipsRandom: []
   channel: {fileID: 0}
-  volume: 0.4
+  volume: 0.5
   pitch: 1
   useRandomPitch: 1
   randomPitch: {x: 0.94, y: 1}

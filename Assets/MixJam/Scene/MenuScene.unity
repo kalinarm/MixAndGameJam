@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.30858484, g: 0.2366127, b: 0.55004156, a: 1}
+  m_IndirectSpecularColor: {r: 0.30858445, g: 0.23661241, b: 0.5500406, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3745,6 +3745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   continueGame: {fileID: 0}
+  music: {fileID: 0}
 --- !u!114 &2139297364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4747,6 +4748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   continueGame: {fileID: 1207194555}
+  music: {fileID: 0}
 --- !u!224 &2232444320134530438
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5103,51 +5105,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1988790193018322786, guid: 213f65509034d1b4ca1b88836d20ec69,
-        type: 3}
-      propertyPath: fadeCurve.m_Curve.Array.data[0].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1988790193018322786, guid: 213f65509034d1b4ca1b88836d20ec69,
-        type: 3}
-      propertyPath: fadeCurve.m_Curve.Array.data[0].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1988790193018322786, guid: 213f65509034d1b4ca1b88836d20ec69,
-        type: 3}
-      propertyPath: fadeCurve.m_Curve.Array.data[0].tangentMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1988790193018322786, guid: 213f65509034d1b4ca1b88836d20ec69,
-        type: 3}
-      propertyPath: fadeCurve.m_Curve.Array.data[1].inSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1988790193018322786, guid: 213f65509034d1b4ca1b88836d20ec69,
-        type: 3}
-      propertyPath: fadeCurve.m_Curve.Array.data[1].outSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1988790193018322786, guid: 213f65509034d1b4ca1b88836d20ec69,
-        type: 3}
-      propertyPath: fadeCurve.m_Curve.Array.data[1].tangentMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6586712833483186017, guid: 213f65509034d1b4ca1b88836d20ec69,
         type: 3}
       propertyPath: m_Name
       value: MusicLoop
       objectReference: {fileID: 0}
-    - target: {fileID: 6586712833483186044, guid: 213f65509034d1b4ca1b88836d20ec69,
-        type: 3}
-      propertyPath: fadeInTime
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6586712833483186046, guid: 213f65509034d1b4ca1b88836d20ec69,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: eebff7a948ba79e4aab0b9a8a95fe493, type: 3}
     - target: {fileID: 6586712833483186047, guid: 213f65509034d1b4ca1b88836d20ec69,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -1447,32 +1447,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 871833051}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1115324545 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4536083277674398880, guid: 9e38046336095ce48b4f1fddba3e6ab6,
-    type: 3}
-  m_PrefabInstance: {fileID: 4536083277356295800}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1115324549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115324545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 642ca779549b0504b8618d42685ad1b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
-  turnSpeed: 2
-  timeAction: 0.5
-  diceFactor: 1
-  path: {fileID: 0}
-  startingCaseIndex: 0
-  currentCaseIndex: 0
-  goalCaseIndex: 0
 --- !u!1001 &1117005662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2605,6 +2579,18 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4536083277674398881, guid: 9e38046336095ce48b4f1fddba3e6ab6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9e38046336095ce48b4f1fddba3e6ab6, type: 3}
+--- !u!114 &4536083277356295801 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1115324549, guid: 9e38046336095ce48b4f1fddba3e6ab6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4536083277356295800}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642ca779549b0504b8618d42685ad1b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4691161700866260760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2637,7 +2623,7 @@ PrefabInstance:
         type: 3}
       propertyPath: controlled.Array.data[0]
       value: 
-      objectReference: {fileID: 1115324549}
+      objectReference: {fileID: 4536083277356295801}
     - target: {fileID: 550806318983220103, guid: e8fd9a0b481583d4a8cf262787ea462b,
         type: 3}
       propertyPath: winnObjects.Array.data[0]
@@ -2647,7 +2633,7 @@ PrefabInstance:
         type: 3}
       propertyPath: controlled.Array.data[1]
       value: 
-      objectReference: {fileID: 1115324549}
+      objectReference: {fileID: 0}
     - target: {fileID: 550806318983220103, guid: e8fd9a0b481583d4a8cf262787ea462b,
         type: 3}
       propertyPath: level

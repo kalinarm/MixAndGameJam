@@ -9,10 +9,16 @@ namespace MG
     public class GameUI : MonoBehaviour
     {
         public Button continueGame;
+        public Toggle music;
 
         void OnEnable()
         {
             if (continueGame != null) continueGame.interactable = (GameManager.Instance.canContinueGame());
+            if (music != null)
+            {
+                music.isOn = !MusicBehavior.isMuted();
+                music.onValueChanged.AddListener(onClickMute);
+            }
         }
 
         public void restartLevel()
@@ -35,5 +41,10 @@ namespace MG
         {
             GameManager.Instance.continueGame();
         }
+        public void onClickMute(bool active)
+        {
+            MusicBehavior.Mute(!active);
+        }
+
     }
 }

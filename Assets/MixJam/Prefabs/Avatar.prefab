@@ -89,8 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642ca779549b0504b8618d42685ad1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  turnSpeed: 2
+  speed: 5
+  turnSpeed: 3
   timeAction: 0.5
   diceFactor: 1
   path: {fileID: 0}
